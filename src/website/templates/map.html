@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <!-- 
+    Blackrock Digital StartBootstrap Resume Template (see LICENSE file)
+    https://github.com/BlackrockDigital/startbootstrap-resume
+  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Predicting U.S. Crop Performance</title>
+
+  <!--
+    Bootstrap Template Requirements
+  -->
+  <!-- Bootstrap core CSS -->
+  <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="{% static "vendor/fontawesome-free/css/all.min.css" %}" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static "css/resume.min.css" %}" rel="stylesheet">
+  <!-------------------------------------------------------------------------->
+
+   <!--
+    US Heatmap Requirements
+  -->
+  <!-- style -->
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static "css/heatmap.css" %}">
+  <!-------------------------------------------------------------------------->
+
+</head>
+
+<body id="page-top">
+
+   
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">U.S. Heat Map for New England</span>
+      <span class="d-none d-lg-block">
+        <!-- Uncomment for profile picture to show on the left -->
+        <!-- <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt=""> -->
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#pr-section">Precipitation</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#tasmin-section">Min. Temperature</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#tasmax-section">Max. Temperature</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#vci-section">Veg. Condition</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#tci-section">Temp. Condition</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- <div id="fullpage" class="container-fluid p-0"> -->
+  <div class="heatmap-page container-fluid p-0">
+
+    <section class="heatmap-section p-3 p-lg-5 d-flex align-items-center" id="about">
+      <div class="w-100">
+        <h2 class="mb-0">Predicting
+          <span class="text-primary">U.S. Crop Performance</span>
+        </h2>
+        <div class="subheading mb-5">
+            Nicholas Christman · <span class="text-primary">nc2677 (at) columbia.edu</span>
+            </br>
+            Michael Gallagher · <span class="text-primary">mhg2141 (at) columbia.edu</span>
+        </div>
+        <p class="lead mb-5">
+            Use historical vegetation performance index data sets and corresponding climate
+            data sets to predict future crop production outlook. Apache Spark MLib regression
+            models were implemented and the results are displayed using d3.geo visualization
+            toolkit.            
+        </p>
+        <div class="social-icons">
+          <a href="https://github.com/Sapphirine/201912-51-Predicting-US-Crop-Performance" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="heatmap-section p-3 p-lg-5 d-flex justify-content-center" id="pr-section">
+      <div class="w-100">
+        <!-- <h2 >Precipitation</h2> -->
+
+        <div class="heatmap-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="heatmap-content">
+            <h3 id="pr-title" class="mb-0">Precipitation (New England Region)</h3>
+            <div id="pr-subtitle" class="subheading mb-3"><br></div>
+            <div id="pr-container" class="svg-container pr-geo"></div>
+            <!-- <div id="pr-legend"></div> -->
+          </div>
+          <!-- <div class="resume-date text-md-right">
+            <span class="text-primary">March 2013 - Present</span>
+          </div> -->
+        </div>
+       </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="heatmap-section p-3 p-lg-5 d-flex justify-content-center" id="tasmin-section">
+      <div class="w-100">
+        <!-- <h2>Minimum Surface Temperature</h2> -->
+
+        <div class="heatmap-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="heatmap-content">
+            <h3 class="mb-0">Minimum Surface Temperature (New England Region)</h3>
+            <div id="tasmin-subtitle" class="subheading mb-3"><br></div>
+            <div id="tasmin-container" class="svg-container"></div>
+          </div>
+          <!-- <div class="resume-date text-md-right">
+            <span class="text-primary">March 2013 - Present</span>
+          </div> -->
+        </div>
+      </div>
+       
+    </section>
+
+    <hr class="m-0">
+
+    <section class="heatmap-section p-3 p-lg-5 d-flex justify-content-center" id="tasmax-section">
+      <div class="w-100">
+        <!-- <h2>Maximum Surface Temperature</h2> -->
+
+        <div class="heatmap-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="heatmap-content">
+            <h3 class="mb-0">Maximum Surface Temperature (New England Region)</h3>
+            <div id="tasmax-subtitle" class="subheading mb-3"><br></div>
+            <div id="tasmax-container" class="svg-container"></div>
+          </div>
+          <!-- <div class="resume-date text-md-right">
+            <span class="text-primary">March 2013 - Present</span>
+          </div> -->
+        </div>
+      </div>
+
+    </section>
+    
+    <hr class="m-0">
+
+    <section class="heatmap-section p-3 p-lg-5 d-flex justify-content-center" id="vci-section">
+      <div class="w-100">
+        <!-- <h2>Maximum Surface Temperature</h2> -->
+
+        <div class="heatmap-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="heatmap-content">
+            <h3 class="mb-0">Vegetation Condition Index (New England Region)</h3>
+            <div id="vci-subtitle" class="subheading mb-3"><br></div>
+            <div id="vci-container" class="svg-container"></div>
+          </div>
+          <!-- <div class="resume-date text-md-right">
+            <span class="text-primary">March 2013 - Present</span>
+          </div> -->
+        </div>
+      </div>
+
+    </section>
+    
+    <hr class="m-0">
+
+    <section class="heatmap-section p-3 p-lg-5 d-flex justify-content-center" id="tci-section">
+      <div class="w-100">
+        <!-- <h2>Maximum Surface Temperature</h2> -->
+
+        <div class="heatmap-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="heatmap-content">
+            <h3 class="mb-0"> Temperature Condition Index (New England Region)</h3>
+            <div id="tci-subtitle" class="subheading mb-3"><br></div>
+            <div id="tci-container" class="svg-container"></div>
+          </div>
+          <!-- <div class="resume-date text-md-right">
+            <span class="text-primary">March 2013 - Present</span>
+          </div> -->
+        </div>
+      </div>
+
+    </section>
+
+    <hr class="m-0">
+
+    <!--
+        Bootstrap Template Requirements
+    -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+    <!-- Plugin JavaScript -->
+    <script src="{% static "vendor/jquery-easing/jquery.easing.min.js" %}"></script>
+    <!-- Custom scripts for this template -->
+    <script src="{% static "js/resume.min.js" %}"></script>
+    <!-- Scripts for fullpage scroll -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{% static "js/jquery.fullpage.min.js" %}"></script>
+    <script src="{% static "js/jquery.scrollify.js" %}"></script>
+    
+    <!--
+        US Heatmap Requirements
+    -->
+    <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+    <script src="https://d3js.org/d3-format.v1.min.js"></script>
+    <!-- for d3 zoom-->
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-timer.v1.min.js"></script>
+    <script src="https://d3js.org/d3-transition.v1.min.js"></script>
+    <script src="https://d3js.org/d3-drag.v1.min.js"></script>
+    <script src="https://d3js.org/d3-zoom.v1.min.js"></script>
+    <!-- local javascript function -->
+    <script src="{% static "js/heatmap.js" %}"></script>
+    <script src="{% static "js/require.js" %}"></script>
+    <!--
+        Google Analytics Requirements
+    -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-36NPWYVY5C"></script>
+    <script>
+        // full page scroll
+        $('#fullpage').fullpage();
+
+        // Django data import
+        var Data= {{ data | safe}}
+        // Contiguous US TopoJSON
+        // var county_topojson = "{% static "geojson/cont_us_counties.json"%}";
+        // var state_topojson = "{% static "geojson/cont_us_states.json"%}";
+    
+        // New England TopoJSON
+        var county_topojson = "{% static "geojson/ne_counties.json"%}"; // New England
+        var state_topojson = "{% static "geojson/ne_states.json"%}"; // New England
+        var state_fips = "{% static "geojson/cont_fipsToState.json"%}"; // New England
+        
+        
+        // call the heat map function
+        heatmap('#container', Data,county_topojson,state_topojson,state_fips)
+        
+        // call Google Analytics tracker
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-36NPWYVY5C');
+    </script>
+
+</body>
+
+</html>

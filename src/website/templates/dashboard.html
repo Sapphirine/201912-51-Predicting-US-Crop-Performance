@@ -1,0 +1,22 @@
+<html>
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <title>US Heat Map (rev. 0)</title>
+</head>
+<link rel="stylesheet" href="{% static "css/dashboard.css" %}">
+<body>
+<h1>US Heat Map - Dashboard</h1>
+<h2></h2>
+<div id='dashboard'></div>
+
+<svg class="bar-chart"></svg>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="{% static "js/dashboard.js" %}"></script>
+<script>
+    var Data= {{ data | safe}}
+    console.log("Date:", Data);
+    dashboard('#dashboard', Data)
+</script>
+</body>
+</html>
