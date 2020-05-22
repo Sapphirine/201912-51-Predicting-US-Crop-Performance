@@ -43,3 +43,6 @@ There are example, parsed files, stored in the `/src/.tmp/` directory. These fil
     PARSE_C5 = False 
 ```
 The `mod_test.py` script is designed to excercise each of the data preprocessing modules independently. Be sure to disable Google BQ storing if it is not being used OR set the appropriate parameters in `mod_test.py`.
+
+## More Information
+http://www.ee.columbia.edu/~cylin/course/bigdata/projects/
